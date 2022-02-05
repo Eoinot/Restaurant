@@ -1,5 +1,179 @@
-public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+
+public class App extends Application {
+    static int num;
+    static int num2;
+    static int equal;
+    public static void main(String[] args) {
+        
+        launch(args);
+        
     }
+    
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Hello World!");
+        Button btn0 = new Button();
+        Button btn1 = new Button();
+        Button btn2 = new Button();
+        Button btn3 = new Button();
+        Button btn4 = new Button();
+        Button btn5 = new Button();
+        Button btn6 = new Button();
+        Button btn7 = new Button();
+        Button btn8 = new Button();
+        Button btn9 = new Button();
+        Button btnadd = new Button();
+        Button btnsub = new Button();
+        Button btnmult = new Button();
+        Button btndiv = new Button();
+        Button btnequal = new Button();
+        btn0.setText("0");
+        btn1.setText("1");
+        btn2.setText("2");
+        btn3.setText("3");
+        btn4.setText("4");
+        btn5.setText("5");
+        btn6.setText("6");
+        btn7.setText("7");
+        btn8.setText("8");
+        btn9.setText("9");
+        btnequal.setText("=");
+        btnadd.setText("+");
+        btnsub.setText("-");
+        btnmult.setText("X");
+        btndiv.setText("/");
+        btnadd.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                if(num == ' ' || num2 == ' '){
+                    System.out.println("Error");
+                }else{
+                    equal = num + num2;
+                }
+                
+                
+            }
+
+        
+        });
+
+        btnsub.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                num = num - num2;
+                System.out.println(num);
+            }
+
+           
+        });
+
+        btn0.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                if(num == 0){
+                    num = 0;
+                } else{
+                    num2 = 0;
+                }
+                
+                
+            }
+
+        
+        });
+        btn1.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                if (num != ' '){
+                    num2 = 1;
+                } else{
+                    num = 1;
+                }
+                
+                
+            }
+
+        
+        });
+        btnequal.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                if(num  != ' ' && num2 != ' '){
+                    System.out.println(equal);
+                    num = equal;
+                } else{
+                    System.out.println("Please enter 2 numbers!");
+                }
+                
+                
+            }
+
+        
+        });
+        StackPane root = new StackPane();
+        
+        root.getChildren().add(btnadd);
+        root.getChildren().add(btn0);
+        root.getChildren().add(btn1);
+        root.getChildren().add(btn2);
+        root.getChildren().add(btn3);
+        root.getChildren().add(btn4);
+        root.getChildren().add(btn5);
+        root.getChildren().add(btn6);
+        root.getChildren().add(btn7);
+        root.getChildren().add(btn8);
+        root.getChildren().add(btn9);
+        root.getChildren().add(btnsub);
+        root.getChildren().add(btndiv);
+        root.getChildren().add(btnmult);
+        root.getChildren().add(btnequal);
+        btnsub.setTranslateX(50);
+        btnsub.setTranslateY(25);
+        btnadd.setTranslateX(50);
+        btnadd.setTranslateY(50);
+        btn0.setTranslateX(-50);
+        btn0.setTranslateY(75);
+        btn1.setTranslateX(-50);
+        btn1.setTranslateY(50);
+        btn2.setTranslateX(-25);
+        btn2.setTranslateY(50);
+        btn3.setTranslateX(0);
+        btn3.setTranslateY(50);
+        btn4.setTranslateX(-50);
+        btn4.setTranslateY(25);
+        btn5.setTranslateX(-25);
+        btn5.setTranslateY(25);
+        btn6.setTranslateX(0);
+        btn6.setTranslateY(25);
+        btn7.setTranslateX(-50);
+        btn7.setTranslateY(0);
+        btn8.setTranslateX(-25);
+        btn8.setTranslateY(0);
+        btn9.setTranslateX(0);
+        btn9.setTranslateY(0);
+        btnmult.setTranslateX(50);
+        btnmult.setTranslateY(0);
+        btndiv.setTranslateX(25);
+        btndiv.setTranslateY(0);
+        btnequal.setTranslateX(25);
+        btnequal.setTranslateY(25);
+        primaryStage.setScene(new Scene(root, 500, 500));
+
+        primaryStage.show();
+
+    }
+
 }
