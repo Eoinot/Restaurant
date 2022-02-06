@@ -1,24 +1,22 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-
 import java.lang.String;
 
 
 
 public class App extends Application {
-    static Double num;
+    static Double num =  0.0;
     static Double num2;
     static String choice;
+    static String print;
     public static void main(String[] args) {
         
         launch(args);
@@ -30,15 +28,18 @@ public class App extends Application {
         primaryStage.setTitle("Hello World!");
 
         Rectangle rect = new Rectangle();
+        rect.setFill(Color.LIGHTBLUE);
         Rectangle rect2 = new Rectangle();
         rect.setWidth(150);
         rect.setHeight(200);
-        rect.setFill(Color.LIGHTBLUE);
-        rect2.setX(25);
-        rect2.setY(25);
-        rect2.setWidth(150);
-        rect2.setHeight(200);
         rect2.setFill(Color.LIGHTGREY);
+        
+
+        Text t = new Text();
+        t.setX(50); 
+        t.setY(50); 
+
+        
         
         
 
@@ -57,6 +58,7 @@ public class App extends Application {
         Button btnmult = new Button();
         Button btndiv = new Button();
         Button btnequal = new Button();
+
         btn0.setText("0");
         btn1.setText("1");
         btn2.setText("2");
@@ -72,6 +74,8 @@ public class App extends Application {
         btnsub.setText("-");
         btnmult.setText("X");
         btndiv.setText("/");
+        t.setText(String.valueOf(num));
+
         
         
         btnadd.setOnAction(new EventHandler<ActionEvent>() {
@@ -119,6 +123,13 @@ public class App extends Application {
             public void handle(ActionEvent event) {
                
                 operate();
+                t.setText(String.valueOf(num));
+                
+                
+
+                primaryStage.show();
+                
+
             }
                
             
@@ -269,8 +280,9 @@ public class App extends Application {
 
         StackPane root = new StackPane();
 
-        root.getChildren().addAll(rect2);
+       
         root.getChildren().addAll(rect);
+        root.getChildren().addAll(rect2);
         root.getChildren().add(btnadd);
         root.getChildren().add(btn0);
         root.getChildren().add(btn1);
@@ -286,6 +298,8 @@ public class App extends Application {
         root.getChildren().add(btndiv);
         root.getChildren().add(btnmult);
         root.getChildren().add(btnequal);
+        root.getChildren().add(t);
+
        
         
         btnsub.setTranslateX(50);
@@ -319,16 +333,24 @@ public class App extends Application {
         btnequal.setTranslateX(25);
         btnequal.setTranslateY(50);
         btnequal.setMaxHeight(75);
+        t.setTranslateX(35);
+        t.setTranslateY(-40);
+        rect2.setTranslateX(0);
+        rect2.setTranslateY(-37);
+        rect2.setWidth(100);
+        rect2.setHeight(25);
 
         
         primaryStage.setScene(new Scene(root, 1280, 720));
         
 
         primaryStage.show();
+       
 
     }
 
     public void operate() {
+        
         
         switch (choice) {
             case "add":
@@ -348,7 +370,7 @@ public class App extends Application {
                 System.out.println(num);
                 break;
         }
-
+        
     }
     
 
