@@ -1,16 +1,24 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 
+import java.lang.String;
+
+
+
 public class App extends Application {
-    static int num;
-    static int num2;
-    static int equal;
+    static Double num;
+    static Double num2;
+    static String choice;
     public static void main(String[] args) {
         
         launch(args);
@@ -20,6 +28,20 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Hello World!");
+
+        Rectangle rect = new Rectangle();
+        Rectangle rect2 = new Rectangle();
+        rect.setWidth(150);
+        rect.setHeight(200);
+        rect.setFill(Color.LIGHTBLUE);
+        rect2.setX(25);
+        rect2.setY(25);
+        rect2.setWidth(150);
+        rect2.setHeight(200);
+        rect2.setFill(Color.LIGHTGREY);
+        
+        
+
         Button btn0 = new Button();
         Button btn1 = new Button();
         Button btn2 = new Button();
@@ -50,72 +72,96 @@ public class App extends Application {
         btnsub.setText("-");
         btnmult.setText("X");
         btndiv.setText("/");
+        
+        
         btnadd.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-                if(num == ' ' || num2 == ' '){
-                    System.out.println("Error");
-                }else{
-                    equal = num + num2;
-                }
                 
-                
+                choice = "add";
+                   
             }
 
-        
         });
 
         btnsub.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-                num = num - num2;
-                System.out.println(num);
+
+                choice = "sub";;
             }
 
            
+        });
+        btndiv.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                choice = "div";
+            }
+
+           
+        });
+        btnmult.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+                choice = "mult";
+            }
+
+           
+        });
+
+        btnequal.setOnAction(new EventHandler<ActionEvent>() {
+            
+            public void handle(ActionEvent event) {
+               
+                operate();
+            }
+               
+            
+            
+
+        
         });
 
         btn0.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-                if(num == 0){
-                    num = 0;
+                if(num != null){
+                    num = 0.0;
                 } else{
-                    num2 = 0;
+                    num2 = 0.0;
                 }
                 
                 
             }
-
         
         });
         btn1.setOnAction(new EventHandler<ActionEvent>() {
  
-            @Override
             public void handle(ActionEvent event) {
-                if (num != ' '){
-                    num2 = 1;
+                if (num != null){
+                    num2 = 1.0;
                 } else{
-                    num = 1;
+                    num = 1.0;
                 }
-                
                 
             }
 
-        
         });
-        btnequal.setOnAction(new EventHandler<ActionEvent>() {
+       
+        btn2.setOnAction(new EventHandler<ActionEvent>() {
  
-            @Override
+            
             public void handle(ActionEvent event) {
-                if(num  != ' ' && num2 != ' '){
-                    System.out.println(equal);
-                    num = equal;
+                if (num != null){
+                    num2 = 2.0;
                 } else{
-                    System.out.println("Please enter 2 numbers!");
+                    num = 2.0;
                 }
                 
                 
@@ -123,8 +169,108 @@ public class App extends Application {
 
         
         });
-        StackPane root = new StackPane();
+        btn3.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+                if (num != null){
+                    num2 = 3.0;
+                } else{
+                    num = 3.0;
+                }
+                
+                
+            }
         
+        });
+        btn4.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+                if (num != null){
+                    num2 = 4.0;
+                } else{
+                    num = 4.0;
+                }
+                
+                
+            }
+
+        
+        });
+        btn5.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+                if (num != null){
+                    num2 = 5.0;
+                } else{
+                    num = 5.0;
+                }
+                
+                
+            }
+
+        
+        });
+        btn6.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+                if (num != null){
+                    num2 = 6.0;
+                } else{
+                    num = 6.0;
+                }
+                
+                
+            }
+
+        
+        });
+        btn7.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+                if (num != null){
+                    num2 =  7.0;
+                } else{
+                    num =  7.0;
+                }
+                
+                
+            }
+        
+        });
+        btn8.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+                if (num != null){
+                    num2 = 8.0;
+                } else{
+                    num = 8.0;
+                }
+                
+                
+            }
+
+        
+        });
+        btn9.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+                if (num != null){
+                    num2 = 9.0;
+                } else{
+                    num = 9.0;
+                }
+                
+                
+            }
+
+        
+        });
+
+
+        StackPane root = new StackPane();
+
+        root.getChildren().addAll(rect2);
+        root.getChildren().addAll(rect);
         root.getChildren().add(btnadd);
         root.getChildren().add(btn0);
         root.getChildren().add(btn1);
@@ -140,11 +286,13 @@ public class App extends Application {
         root.getChildren().add(btndiv);
         root.getChildren().add(btnmult);
         root.getChildren().add(btnequal);
+       
+        
         btnsub.setTranslateX(50);
         btnsub.setTranslateY(25);
         btnadd.setTranslateX(50);
         btnadd.setTranslateY(50);
-        btn0.setTranslateX(-50);
+        btn0.setTranslateX(-25);
         btn0.setTranslateY(75);
         btn1.setTranslateX(-50);
         btn1.setTranslateY(50);
@@ -169,11 +317,39 @@ public class App extends Application {
         btndiv.setTranslateX(25);
         btndiv.setTranslateY(0);
         btnequal.setTranslateX(25);
-        btnequal.setTranslateY(25);
-        primaryStage.setScene(new Scene(root, 500, 500));
+        btnequal.setTranslateY(50);
+        btnequal.setMaxHeight(75);
+
+        
+        primaryStage.setScene(new Scene(root, 1280, 720));
+        
 
         primaryStage.show();
 
     }
+
+    public void operate() {
+        
+        switch (choice) {
+            case "add":
+                num += num2;
+                System.out.println(num);
+                break;
+            case "div":
+                num /= num2;
+                System.out.println(num);
+                break;
+            case "mult":
+                num *= num2;
+                System.out.println(num);
+                break;
+            case "sub":
+                num -= num2;
+                System.out.println(num);
+                break;
+        }
+
+    }
+    
 
 }
