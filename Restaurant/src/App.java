@@ -26,6 +26,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+
         primaryStage.setTitle("Calculator");
 
         Rectangle rect = new Rectangle();
@@ -63,6 +64,7 @@ public class App extends Application {
         Button btnmult = new Button();
         Button btndiv = new Button();
         Button btnequal = new Button();
+        Button btnreset = new Button();
 
         btn0.setText("0");
         btn1.setText("1");
@@ -79,6 +81,8 @@ public class App extends Application {
         btnsub.setText("-");
         btnmult.setText("X");
         btndiv.setText("/");
+        btnreset.setText("C");
+
         t.setText(String.valueOf(num));
 
         
@@ -282,6 +286,23 @@ public class App extends Application {
         
         });
 
+        btnreset.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+
+                num =  0.00;
+                num2 = 0.00;
+                System.out.println(num);
+                System.out.println(num2);
+
+                
+                
+                
+            }
+
+        
+        });
+
 
         StackPane root = new StackPane();
 
@@ -304,13 +325,17 @@ public class App extends Application {
         root.getChildren().add(btnmult);
         root.getChildren().add(btnequal);
         root.getChildren().add(t);
+        root.getChildren().add(btnreset);
+       
 
        
         
         btnsub.setTranslateX(50);
-        btnsub.setTranslateY(25);
+        btnsub.setTranslateY(50);
         btnadd.setTranslateX(50);
-        btnadd.setTranslateY(50);
+        btnadd.setTranslateY(75);
+        btnreset.setTranslateX(50);
+        btnreset.setTranslateY(0);
         btn0.setTranslateX(-25);
         btn0.setTranslateY(75);
         btn1.setTranslateX(-50);
@@ -332,7 +357,7 @@ public class App extends Application {
         btn9.setTranslateX(0);
         btn9.setTranslateY(0);
         btnmult.setTranslateX(50);
-        btnmult.setTranslateY(0);
+        btnmult.setTranslateY(25);
         btndiv.setTranslateX(25);
         btndiv.setTranslateY(0);
         btnequal.setTranslateX(25);
@@ -359,20 +384,20 @@ public class App extends Application {
         
         switch (choice) {
             case "add":
-                sum = num += num2;
-                System.out.println(sum);
+                num += num2;
+                System.out.println(num);
                 break;
             case "div":
-                sum = num /= num2;
-                System.out.println(sum);
+                num /= num2;
+                System.out.println(num);
                 break;
             case "mult":
-                sum = num *= num2;
-                System.out.println(sum);
+                num *= num2;
+                System.out.println(num);
                 break;
             case "sub":
-                sum = num -= num2;
-                System.out.println(sum);
+                num -= num2;
+                System.out.println(num);
                 break;
         }
         
