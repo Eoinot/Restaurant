@@ -13,9 +13,10 @@ import java.lang.String;
 
 
 public class App extends Application {
-    static Double num =  0.0;
+    static Double num;
     static Double num2;
     static String choice;
+    static Double sum;
     static String print;
     public static void main(String[] args) {
         
@@ -25,19 +26,23 @@ public class App extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Calculator");
 
         Rectangle rect = new Rectangle();
         rect.setFill(Color.LIGHTBLUE);
         Rectangle rect2 = new Rectangle();
+        rect.setStrokeWidth(1.0);
+        rect.setStroke(Color.BLACK);
         rect.setWidth(150);
         rect.setHeight(200);
         rect2.setFill(Color.LIGHTGREY);
-        
-
+        rect2.setStrokeWidth(1.0);
+        rect2.setStroke(Color.BLACK);
         Text t = new Text();
         t.setX(50); 
         t.setY(50); 
+
+        
 
         
         
@@ -341,7 +346,7 @@ public class App extends Application {
         rect2.setHeight(25);
 
         
-        primaryStage.setScene(new Scene(root, 1280, 720));
+        primaryStage.setScene(new Scene(root, 480, 360));
         
 
         primaryStage.show();
@@ -354,20 +359,20 @@ public class App extends Application {
         
         switch (choice) {
             case "add":
-                num += num2;
-                System.out.println(num);
+                sum = num += num2;
+                System.out.println(sum);
                 break;
             case "div":
-                num /= num2;
-                System.out.println(num);
+                sum = num /= num2;
+                System.out.println(sum);
                 break;
             case "mult":
-                num *= num2;
-                System.out.println(num);
+                sum = num *= num2;
+                System.out.println(sum);
                 break;
             case "sub":
-                num -= num2;
-                System.out.println(num);
+                sum = num -= num2;
+                System.out.println(sum);
                 break;
         }
         
