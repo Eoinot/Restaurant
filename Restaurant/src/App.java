@@ -9,15 +9,21 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.lang.String;
+import java.util.ArrayList;
 
 
 
 public class App extends Application {
-    static Double num;
-    static Double num2;
+    static int MAX = 10;
+    static int i = 0;
+    static int display[];
+    ArrayList<Double> a = new ArrayList<Double>(MAX);
+    static double num = 0;
+    static int num2;
     static String choice;
     static Double sum;
     static String print;
+    static int range;
     public static void main(String[] args) {
         
         launch(args);
@@ -137,6 +143,12 @@ public class App extends Application {
                 
 
                 primaryStage.show();
+                System.out.println(num);
+                a.clear();
+                a.add((double) num);
+                System.out.println(a);
+                num = 0;
+                System.out.println(a.get(0));
                 
 
             }
@@ -151,12 +163,12 @@ public class App extends Application {
  
             @Override
             public void handle(ActionEvent event) {
-                if(num != null){
+                /* if(num != null){
                     num = 0.0;
                 } else{
                     num2 = 0.0;
-                }
-                
+                } */
+                a.add(0.00);
                 
             }
         
@@ -164,12 +176,12 @@ public class App extends Application {
         btn1.setOnAction(new EventHandler<ActionEvent>() {
  
             public void handle(ActionEvent event) {
-                if (num != null){
+               /*  if (num != null){
                     num2 = 1.0;
                 } else{
                     num = 1.0;
-                }
-                
+                } */
+                a.add(1.00);
             }
 
         });
@@ -178,11 +190,12 @@ public class App extends Application {
  
             
             public void handle(ActionEvent event) {
-                if (num != null){
+                /* if (num != null){
                     num2 = 2.0;
                 } else{
                     num = 2.0;
-                }
+                } */
+                a.add(2.00);
                 
                 
             }
@@ -192,25 +205,24 @@ public class App extends Application {
         btn3.setOnAction(new EventHandler<ActionEvent>() {
  
             public void handle(ActionEvent event) {
-                if (num != null){
+                /* if (num != null){
                     num2 = 3.0;
                 } else{
                     num = 3.0;
-                }
-                
-                
+                } */
+                a.add(3.00);
             }
         
         });
         btn4.setOnAction(new EventHandler<ActionEvent>() {
  
             public void handle(ActionEvent event) {
-                if (num != null){
+               /*  if (num != null){
                     num2 = 4.0;
                 } else{
                     num = 4.0;
-                }
-                
+                } */
+                a.add(4.00);
                 
             }
 
@@ -219,13 +231,13 @@ public class App extends Application {
         btn5.setOnAction(new EventHandler<ActionEvent>() {
  
             public void handle(ActionEvent event) {
-                if (num != null){
+                /* if (num != null){
                     num2 = 5.0;
                 } else{
                     num = 5.0;
-                }
-                
-                
+                } */
+
+                a.add(5.00);
             }
 
         
@@ -233,11 +245,13 @@ public class App extends Application {
         btn6.setOnAction(new EventHandler<ActionEvent>() {
  
             public void handle(ActionEvent event) {
-                if (num != null){
+                /* if (num != null){
                     num2 = 6.0;
                 } else{
                     num = 6.0;
-                }
+                } */
+
+                a.add(6.00);
                 
                 
             }
@@ -247,11 +261,14 @@ public class App extends Application {
         btn7.setOnAction(new EventHandler<ActionEvent>() {
  
             public void handle(ActionEvent event) {
-                if (num != null){
+                /* if (num != null){
                     num2 =  7.0;
                 } else{
                     num =  7.0;
-                }
+                } */
+
+                a.add(7.00);
+                
                 
                 
             }
@@ -260,11 +277,13 @@ public class App extends Application {
         btn8.setOnAction(new EventHandler<ActionEvent>() {
  
             public void handle(ActionEvent event) {
-                if (num != null){
+                /* if (num != null){
                     num2 = 8.0;
                 } else{
                     num = 8.0;
-                }
+                } */
+                a.add(8.00);
+                
                 
                 
             }
@@ -274,11 +293,14 @@ public class App extends Application {
         btn9.setOnAction(new EventHandler<ActionEvent>() {
  
             public void handle(ActionEvent event) {
-                if (num != null){
+               /*  if (num != null){
                     num2 = 9.0;
                 } else{
                     num = 9.0;
-                }
+                } */
+                a.add(9.00);
+                System.out.println(a);
+                
                 
                 
             }
@@ -290,12 +312,11 @@ public class App extends Application {
  
             public void handle(ActionEvent event) {
 
-                num =  0.00;
-                num2 = 0.00;
-                System.out.println(num);
-                System.out.println(num2);
-
-                
+               
+                a.clear();
+                System.out.println(a);
+                t.setText(String.valueOf(num));
+                primaryStage.show();
                 
                 
             }
@@ -381,23 +402,34 @@ public class App extends Application {
 
     public void operate() {
         
-        
         switch (choice) {
             case "add":
-                num += num2;
-                System.out.println(num);
+            for(int z = 0;z < a.size() ;z++)
+            { 
+                    num = num + a.get(z);
+
+            }
                 break;
             case "div":
-                num /= num2;
-                System.out.println(num);
+            for(int z = 0;z < a.size() ;z++)
+            { 
+                    num = num / a.get(z);
+
+            }
                 break;
             case "mult":
-                num *= num2;
-                System.out.println(num);
+            for(int z = 0;z < a.size() ;z++)
+            { 
+                    num = num * a.get(z);
+
+            }
                 break;
             case "sub":
-                num -= num2;
-                System.out.println(num);
+            for(int z = 0;z < a.size() ;z++)
+            { 
+                    num = num - a.get(z);
+
+            }
                 break;
         }
         
