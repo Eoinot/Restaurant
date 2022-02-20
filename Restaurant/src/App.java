@@ -406,30 +406,41 @@ public class App extends Application {
             case "add":
             for(int z = 0;z < a.size() ;z++)
             { 
-                    num = num + a.get(z);
+                num = num + a.get(z);
 
             }
+    
                 break;
             case "div":
-            for(int z = 0;z < a.size() ;z++)
+            num = a.get(0);
+            for(int z = 1;z < a.size() ;z++)
             { 
+                if(a.get(z) == 0)
+                    num = 1;
+                else 
                     num = num / a.get(z);
+                
 
             }
+           
                 break;
             case "mult":
-            for(int z = 0;z < a.size() ;z++)
+            num = a.get(0);
+            for(int z = 1;z < a.size() ;z++)
             { 
-                    num = num * a.get(z);
+
+                num = num * a.get(z);
 
             }
+            
                 break;
             case "sub":
             for(int z = 0;z < a.size() ;z++)
             { 
-                    num = num - a.get(z);
+                num = num - a.get(z);
 
             }
+            
                 break;
         }
         
