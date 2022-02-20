@@ -18,6 +18,7 @@ public class App extends Application {
     static int i = 0;
     static int display[];
     ArrayList<Double> a = new ArrayList<Double>(MAX);
+    int[] a2 = new int[MAX];
     static double num = 0;
     static int num2;
     static String choice;
@@ -71,6 +72,7 @@ public class App extends Application {
         Button btndiv = new Button();
         Button btnequal = new Button();
         Button btnreset = new Button();
+        Button btndot = new Button();
 
         btn0.setText("0");
         btn1.setText("1");
@@ -88,6 +90,7 @@ public class App extends Application {
         btnmult.setText("X");
         btndiv.setText("/");
         btnreset.setText("C");
+        btndot.setText(".");
 
         t.setText(String.valueOf(num));
 
@@ -157,6 +160,18 @@ public class App extends Application {
             
 
         
+        });
+        btndot.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            public void handle(ActionEvent event) {
+               /*  if (num != null){
+                    num2 = 1.0;
+                } else{
+                    num = 1.0;
+                } */
+                a.add((double) '.');
+            }
+
         });
 
         btn0.setOnAction(new EventHandler<ActionEvent>() {
@@ -298,6 +313,7 @@ public class App extends Application {
                 } else{
                     num = 9.0;
                 } */
+                
                 a.add(9.00);
                 System.out.println(a);
                 
@@ -307,6 +323,7 @@ public class App extends Application {
 
         
         });
+        
 
         btnreset.setOnAction(new EventHandler<ActionEvent>() {
  
@@ -327,9 +344,10 @@ public class App extends Application {
 
         StackPane root = new StackPane();
 
-       
+        
         root.getChildren().addAll(rect);
         root.getChildren().addAll(rect2);
+        root.getChildren().add(btndot);
         root.getChildren().add(btnadd);
         root.getChildren().add(btn0);
         root.getChildren().add(btn1);
@@ -347,10 +365,12 @@ public class App extends Application {
         root.getChildren().add(btnequal);
         root.getChildren().add(t);
         root.getChildren().add(btnreset);
+        
        
 
        
-        
+        btndot.setTranslateX(0);
+        btndot.setTranslateY(75);
         btnsub.setTranslateX(50);
         btnsub.setTranslateY(50);
         btnadd.setTranslateX(50);
