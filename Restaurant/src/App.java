@@ -424,6 +424,12 @@ public class App extends Application {
         
         switch (choice) {
             case "add":
+
+            if(a.size() < 2){
+                System.out.println("Error - Enter minimum 2 digits");
+                break;
+            }
+            
             for(int z = 0;z < a.size() ;z++)
             { 
                 num = num + a.get(z);
@@ -432,6 +438,11 @@ public class App extends Application {
     
                 break;
             case "div":
+
+            if(a.size() < 2){
+                System.out.println("Error - Enter minimum 2 digits");
+                break;
+            }
             num = a.get(0);
             for(int z = 1;z < a.size() ;z++)
             { 
@@ -445,6 +456,12 @@ public class App extends Application {
            
                 break;
             case "mult":
+
+            if(a.size() < 2){
+                System.out.println("Error - Enter minimum 2 digits");
+                break;
+            }
+
             num = a.get(0);
             for(int z = 1;z < a.size() ;z++)
             { 
@@ -455,6 +472,12 @@ public class App extends Application {
             
                 break;
             case "sub":
+
+            if(a.size() < 2){
+                System.out.println("Error - Enter minimum 2 digits");
+                break;
+            }
+
             for(int z = 0;z < a.size() ;z++)
             { 
                 num = num - a.get(z);
@@ -465,6 +488,7 @@ public class App extends Application {
         }
         
     }
-    
+
+
 
 }
