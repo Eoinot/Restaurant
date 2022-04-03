@@ -478,9 +478,9 @@ public class App extends Application {
                 break;
             }
 
-            for(int z = 0;z < a.size() ;z++)
+            for(int z = 1;z < a.size() ;z++)
             { 
-                num = num - a.get(z);
+                num = a.get(z-1) - a.get(z);
 
             }
             
